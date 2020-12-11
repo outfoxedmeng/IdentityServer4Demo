@@ -16,7 +16,8 @@ using System.Threading.Tasks;
 
 namespace IdpMvc.Controllers
 {
-    [Authorize(Roles = "管理员,普通用户")]
+   // [Authorize(Roles = "管理员,普通用户")]
+    [Authorize]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -29,6 +30,7 @@ namespace IdpMvc.Controllers
         public async Task<IActionResult> Index()
         {
 
+            var user = User;
             var r = User.IsInRole("管理员");
             var client = new HttpClient();
 

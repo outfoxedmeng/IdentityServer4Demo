@@ -57,6 +57,13 @@ namespace Idp
                     // set the redirect URI to https://localhost:5001/signin-google
                     options.ClientId = "copy client ID from Google here";
                     options.ClientSecret = "copy client secret from Google here";
+                })
+                .AddGitHub(options=> {
+                    options.SignInScheme = IdentityServerConstants.ExternalCookieAuthenticationScheme;
+
+                    options.ClientId = "eb74496bbe8a7a307b3b";
+                    options.ClientSecret = "2f01f3b19605d31e48b8f055001ce53ca8a70185";
+                    options.Scope.Add("user:email");
                 });
 
                 
