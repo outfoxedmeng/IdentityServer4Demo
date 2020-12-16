@@ -55,9 +55,11 @@ namespace Idp
                     ClientId = "console client",
                     ClientName = "Client Credentials Client",
 
+                    // 没有交互性用户，使用 clientid/secret 实现认证。
                     AllowedGrantTypes = GrantTypes.ClientCredentials,
                     ClientSecrets = { new Secret("api-secret".Sha256()) },
 
+                    // 客户端有权访问的范围（Scopes）
                     AllowedScopes = {
                         "api1"
                     }
